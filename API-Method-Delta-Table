@@ -1,0 +1,29 @@
+---3. CREATE a DELTA Table Using Delta Table Builder API
+
+
+
+from delta.tables import DeltaTable
+
+(
+
+DeltaTable.createOrReplace(spark)
+ .tableName("dev.demo_db.flight_time_tbl")
+ .addColumn("FL_DATE", "DATE")
+ .addColumn("OP_CARRIER", "STRING")
+ .addColumn("OP_CARRIER_FL_NUM", "INT")
+ .addColumn("ORIGIN", "STRING")
+ .addColumn("ORIGIN_CITY_NAME", "STRING")
+ .addColumn("DEST", "STRING")
+ .addColumn("DEST_CITY_NAME", "STRING")
+ .addColumn("CRS_DEP_TIME", "INT")
+ .addColumn("DEP_TIME", "INT")
+ .addColumn("WHEELS_ON", "INT")
+ .addColumn("TAXI_IN", "INT")
+ .addColumn("CRS_ARR_TIME", "INT")
+ .addColumn("ARR_TIME", "INT")
+ .addColumn("AIR_TIME", "INT")
+ .addColumn("CANCELLED", "STRING")
+ .addColumn("DISTANCE", "INT")
+ .execute()
+
+)
